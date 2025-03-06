@@ -1,6 +1,6 @@
-# Project Name
+# D-Influencer test project
 
-Laravel project running with Docker, including Nginx, PHP-FPM, and MySQL.
+Laravel project running with Docker, including Nginx, PHP-FPM, and MySQL. For D-Influencer job application.
 
 ## Prerequisites
 
@@ -17,9 +17,13 @@ git clone <repository-url>
 cd <project-directory>
 ```
 
+2. Copy the `.env.example` file to `.env` and configure the environment variables
+
 ```bash
 cp .env.example .env
 ```
+
+3. Configure the environment variables
 
 ```env
 DB_CONNECTION=mysql
@@ -30,30 +34,50 @@ DB_USERNAME=laravel_user
 DB_PASSWORD=your_password
 ```
 
+4. Start the containers
+
 ```bash
 docker-compose up -d --build
 ```
+
+5. Install the dependencies
 
 ```bash
 docker-compose exec php composer install
 ```
 
+6. Generate the application key
+
 ```bash
 docker-compose exec php php artisan key:generate
 ```
+
+7. Run the migrations
 
 ```bash
 docker-compose exec php php artisan migrate
 ```
 
+8. Clear the cache
+
+```bash
+docker-compose exec php php artisan cache:clear
+```
+
+9. Clear the config
+
+```bash
+docker-compose exec php php artisan config:clear
+```
+
+10. Set the permissions for the storage and bootstrap/cache directories
+
 ```bash
 docker-compose exec php chmod -R 777 storage bootstrap/cache
 ```
 
-Start containers
-`docker-compose up -d`
-Stop containers
-`docker-compose down`
+## Common Commands
+
 View container logs
 `docker-compose logs`
 View specific container logs
@@ -70,37 +94,3 @@ Clear config
 `docker-compose exec php php artisan config:clear`
 Create a new controller
 `docker-compose exec php php artisan make:controller ControllerName`
-
-```bash
-docker-compose exec php chmod -R 777 storage bootstrap/cache
-```
-
-```bash
-docker-compose ps
-```
-
-```bash
-docker-compose down
-docker-compose up -d
-```
-
-├── docker
-│ ├── mysql
-│ ├── nginx
-│ └── php
-├── src
-│ └── (Laravel application files)
-├── .env
-├── docker-compose.yml
-└── README.md
-
-This README provides:
-
--   Clear setup instructions
--   Environment configuration details
--   Common commands
--   Troubleshooting steps
--   Project structure
--   Container information
-
-Feel free to customize it further based on your specific project needs!
