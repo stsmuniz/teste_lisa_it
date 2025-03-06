@@ -79,18 +79,43 @@ docker-compose exec php chmod -R 777 storage bootstrap/cache
 ## Common Commands
 
 View container logs
-`docker-compose logs`
+
+```bash
+docker-compose logs
+```
+
 View specific container logs
-`docker-compose logs {container_name}`
+
+```bash
+docker-compose logs {container_name}
+```
+
 Access PHP container shell
-`docker-compose exec php bash`
+
+```bash
+docker-compose exec php bash
+```
+
 Access MySQL container shell
-`docker-compose exec mysql bash`
+
+```bash
+docker-compose exec mysql bash
+```
+
 Run migrations
-`docker-compose exec php php artisan migrate`
+
+```bash
+docker-compose exec php php artisan migrate
+```
+
 Clear cache
-`docker-compose exec php php artisan cache:clear`
+
+```bash
+docker-compose exec php php artisan cache:clear
+```
+
 Clear config
-`docker-compose exec php php artisan config:clear`
-Create a new controller
-`docker-compose exec php php artisan make:controller ControllerName`
+
+```bash
+docker-compose exec php php artisan config:clear
+```
