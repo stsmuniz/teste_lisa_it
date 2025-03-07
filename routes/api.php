@@ -13,10 +13,6 @@ use Illuminate\Http\Request;
 |--------------------------------------------------------------------------
 */
 
-// Test endpoint
-Route::get('/test', function (Request $request) {
-    return response()->json(['message' => 'API is working']);
-});
 
 // Auth Routes
 Route::post('/auth/register', [AuthController::class, 'register']);
